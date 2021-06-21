@@ -1,0 +1,15 @@
+.field {
+    padding: 0.5rem;
+    
+}
+
+.label {
+    display: flex;
+    flex-direction: column;
+}
+
+.request__delete{
+    background-color: blueviolet;
+    color: white;
+    margin: 0.5rem 3rem 0.25rem;
+}
