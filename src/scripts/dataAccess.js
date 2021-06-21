@@ -18,3 +18,24 @@ export const fetchRequests = () => {
 export const getRequests = () => {
     return applicationState.requests.map(request => ({...request}))
 }
+
+export const sendRequest = (userServiceRequest) => {
+    const fetchOptions = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(userServiceRequest)
+    }
+
+    // Add this...
+    const mainContainer = document.querySelector("#container");
+
+    return fetch(`${API}/requests`, fetchOptions)
+        .then(response => response.json())
+        .then(() => {
+            // ...and this
+            mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+        })
+
+}
