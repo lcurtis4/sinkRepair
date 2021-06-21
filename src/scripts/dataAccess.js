@@ -39,3 +39,14 @@ export const sendRequest = (userServiceRequest) => {
         })
 
 }
+
+export const deleteRequest = (id) => {
+    const mainContainer = document.querySelector("#container");
+    
+    return fetch(`${API}/requests/${id}`, { method: "DELETE" })
+        .then(
+            () => {
+                mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+            }
+        )
+}
